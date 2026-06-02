@@ -1,41 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MessageCircle, X, ArrowUp } from "lucide-react";
-
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-const genAI = new GoogleGenerativeAI(apiKey);
-const model = genAI.getGenerativeModel({
-  model: "gemini-3-flash-preview",
-  systemInstruction: `You are APEX, a knowledgeable and premium health 
-  concierge for APEXFORM — a concierge longevity and performance medicine 
-  clinic.
-    
-  Your personality: warm but precise, confident, like a brilliant friend 
-  who happens to be a doctor. Never robotic. Never generic. 
-    
-  You help potential clients understand:
-  - Our 6 services: Bloodwork, IV Therapy, Peptides, Hormone Optimization, 
-    Recovery, Longevity protocols
-  - How our process works: intake → bloodwork → custom protocol
-  - What results people typically experience
-  - Pricing: premium concierge medicine, typically $200-500/month 
-    depending on protocol
-  - Who we serve: executives, athletes, founders, high performers 35-60
-  - How to book: direct them to click "Book Your Free Call"
-    
-  Rules:
-  - Never diagnose or prescribe
-  - Keep responses concise (2-4 sentences max unless they ask for detail)
-  - If asked something complex and medical say "That's exactly the kind 
-    of thing we'd assess in your bloodwork panel"
-  - Always end with a subtle nudge toward booking when appropriate
-  - If asked about cost, be transparent about the premium range 
-    without being salesy
-  - Speak as part of the APEXFORM team using "we" and "our team"
-  - If asked anything completely unrelated to health or APEXFORM, 
-    politely steer back: "I'm best equipped to help with anything 
-    health and performance related — what goals are you working toward?"`,
-});
+import { sendChatMessage } from "@/lib/api/gemini.functions";
 
 interface Message {
   role: "user" | "model" | "error";
@@ -115,22 +80,18 @@ export function ChatBot({ onBookCall }: { onBookCall?: () => void }) {
     setTimeout(() => setIsCooldown(false), 2000);
 
     try {
-      // Send last 10 messages from current apiHistory
-      const recentHistory = apiHistory.slice(-10);
-      const chat = model.startChat({ history: recentHistory });
-      const result = await chat.sendMessage(userMessage);
-      const response = await result.response;
-      const text = response.text();
-      
+      const { text } = await sendChatMessage({
+        data: { message: userMessage, history: apiHistory.slice(-10) },
+      });
+
       const newModelUiMsg: Message = { role: "model", content: text };
       const newModelApiMsg = { role: "model", parts: [{ text: text }] };
-      
+
       setUiMessages((prev) => [...prev, newModelUiMsg]);
       setApiHistory((prev) => [...prev, newUserApiMsg, newModelApiMsg]);
-      
+
       incrementDailyLimit();
     } catch (error: any) {
-      console.error("Gemini Full Error Object:", error);
       const errorMessage = error.message || "I'm experiencing a slight connection issue. Could you try that again?";
       setUiMessages((prev) => [
         ...prev,
