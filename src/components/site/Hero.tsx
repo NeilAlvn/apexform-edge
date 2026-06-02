@@ -5,6 +5,7 @@ export function Hero() {
   return (
     <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       <div className="absolute inset-0 bg-radial-dark" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_45%,oklch(0.28_0.03_250/0.45),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,oklch(0.75_0.13_85/0.08),transparent_70%)]" />
       <div className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:80px_80px]" />
 
