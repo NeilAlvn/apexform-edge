@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, ArrowUp } from "lucide-react";
 import { sendChatMessage } from "@/lib/api/gemini.functions";
 
