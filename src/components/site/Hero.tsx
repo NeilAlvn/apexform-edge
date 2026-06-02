@@ -1,4 +1,5 @@
 import { useReveal } from "@/hooks/use-reveal";
+import heroPortrait from "@/assets/hero-portrait.jpg";
 
 export function Hero() {
   const ref = useReveal<HTMLElement>();
@@ -9,22 +10,39 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,oklch(0.75_0.13_85/0.08),transparent_70%)]" />
       <div className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:80px_80px]" />
 
+      {/* Cinematic portrait — right side, bleeds off edge */}
+      <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] pointer-events-none">
+        <img
+          src={heroPortrait}
+          alt="APEXFORM member portrait"
+          width={1920}
+          height={1080}
+          className="h-full w-full object-cover object-[60%_center] opacity-60 lg:opacity-90"
+        />
+        {/* Left-to-right fade into background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.08_0.005_270)_0%,oklch(0.08_0.005_270/0.7)_25%,transparent_60%)]" />
+        {/* Bottom fade */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_60%,oklch(0.08_0.005_270)_100%)]" />
+      </div>
+
       <div className="relative mx-auto max-w-6xl px-6 pt-32 pb-20 w-full">
-        <p className="eyebrow reveal">Precision Longevity Medicine</p>
-        <h1 className="reveal mt-6 text-6xl sm:text-8xl lg:text-9xl font-bold tracking-[-0.05em] leading-[0.92]" style={{ transitionDelay: "100ms" }}>
-          Your Biology<br />Is Your <span className="italic font-light text-primary">Edge.</span>
-        </h1>
-        <p className="reveal mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed" style={{ transitionDelay: "200ms" }}>
-          APEXFORM delivers precision longevity protocols — bloodwork, hormones, peptides, and IV therapy — engineered for people who refuse to plateau.
-        </p>
-        <div className="reveal mt-10 flex flex-wrap gap-4" style={{ transitionDelay: "300ms" }}>
-          <a href="#contact" className="group inline-flex items-center gap-2 border border-primary text-primary px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_-5px_oklch(0.75_0.13_85/0.6)]">
-            Start Your Protocol
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </a>
-          <a href="#services" className="inline-flex items-center gap-2 border border-white/15 text-foreground px-7 py-4 text-sm tracking-[0.18em] uppercase hover:border-white/40 transition-colors">
-            Explore Services
-          </a>
+        <div className="max-w-2xl">
+          <p className="eyebrow reveal">Precision Longevity Medicine</p>
+          <h1 className="reveal mt-6 text-6xl sm:text-8xl lg:text-9xl font-bold tracking-[-0.05em] leading-[0.92]" style={{ transitionDelay: "100ms" }}>
+            Your Biology<br />Is Your <span className="italic font-light text-primary">Edge.</span>
+          </h1>
+          <p className="reveal mt-8 max-w-xl text-lg sm:text-xl text-muted-foreground leading-relaxed" style={{ transitionDelay: "200ms" }}>
+            APEXFORM delivers precision longevity protocols — bloodwork, hormones, peptides, and IV therapy — engineered for people who refuse to plateau.
+          </p>
+          <div className="reveal mt-10 flex flex-wrap gap-4" style={{ transitionDelay: "300ms" }}>
+            <a href="#contact" className="group inline-flex items-center gap-2 border border-primary text-primary px-7 py-4 text-sm tracking-[0.18em] uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_-5px_oklch(0.75_0.13_85/0.6)]">
+              Start Your Protocol
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+            <a href="#services" className="inline-flex items-center gap-2 border border-white/15 text-foreground px-7 py-4 text-sm tracking-[0.18em] uppercase hover:border-white/40 transition-colors">
+              Explore Services
+            </a>
+          </div>
         </div>
       </div>
 
