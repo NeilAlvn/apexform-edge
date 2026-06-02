@@ -16,7 +16,7 @@ const miniStats = [
 export function WhyApexform() {
   const ref = useReveal<HTMLElement>();
   return (
-    <section ref={ref} id="why" className="relative py-32 px-6 bg-surface">
+    <section ref={ref} id="why" className="relative py-44 px-6 bg-surface">
       <div className="mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="eyebrow reveal">Why Choose Us</p>
