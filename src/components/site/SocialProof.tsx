@@ -98,7 +98,7 @@ function Stars() {
 export function SocialProof() {
   const ref = useReveal<HTMLElement>();
   return (
-    <section ref={ref} id="community" className="relative py-32 px-6">
+    <section ref={ref} id="community" className="relative py-44 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="eyebrow reveal">The Community</p>
@@ -119,7 +119,7 @@ export function SocialProof() {
               style={{ transitionDelay: `${(i % 3) * 100}ms` }}
             >
               <Stars />
-              <blockquote className="mt-5 text-base lg:text-[17px] leading-relaxed flex-1 text-foreground/90">
+              <blockquote className="mt-5 text-sm leading-relaxed flex-1 text-foreground/90">
                 "{t.quote}"
               </blockquote>
               <figcaption className="mt-8 pt-6 border-t border-white/10 flex items-center gap-4">

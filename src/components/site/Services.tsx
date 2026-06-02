@@ -13,7 +13,7 @@ const services = [
 export function Services() {
   const ref = useReveal<HTMLElement>();
   return (
-    <section ref={ref} id="services" className="relative py-32 px-6">
+    <section ref={ref} id="services" className="relative py-44 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl mb-16">
           <p className="eyebrow reveal">What We Offer</p>

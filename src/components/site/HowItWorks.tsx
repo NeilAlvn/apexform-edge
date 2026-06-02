@@ -9,7 +9,7 @@ const steps = [
 export function HowItWorks() {
   const ref = useReveal<HTMLElement>();
   return (
-    <section ref={ref} id="how" className="relative py-32 px-6">
+    <section ref={ref} id="how" className="relative py-44 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="eyebrow reveal">How It Works</p>
