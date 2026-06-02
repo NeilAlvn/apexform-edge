@@ -1,0 +1,47 @@
+import { Activity, Droplet, Dna, Flame, Moon, Infinity as InfinityIcon } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
+
+const services = [
+  { icon: Activity, name: "Bloodwork", desc: "See everything. Miss nothing. Comprehensive panels that reveal what's actually happening inside." },
+  { icon: Droplet, name: "IV Therapy", desc: "Fuel at the cellular level. Rapid nutrient delivery for recovery, energy, and immune resilience." },
+  { icon: Dna, name: "Peptides", desc: "Signal your body to perform. Targeted protocols for fat loss, muscle growth, and tissue repair." },
+  { icon: Flame, name: "Hormone Optimization", desc: "Balance is performance. Restore your baseline — feel like yourself again, only better." },
+  { icon: Moon, name: "Recovery", desc: "Recover faster. Train harder. Protocols built around inflammation, sleep, and tissue repair." },
+  { icon: InfinityIcon, name: "Longevity", desc: "Play the long game. Biomarker tracking and interventions designed to extend your healthspan." },
+];
+
+export function Services() {
+  const ref = useReveal<HTMLElement>();
+  return (
+    <section ref={ref} id="services" className="relative py-32 px-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-2xl mb-16">
+          <p className="eyebrow reveal">What We Offer</p>
+          <h2 className="reveal mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.02em]" style={{ transitionDelay: "100ms" }}>
+            Every Protocol.<br /><span className="italic font-light text-primary">One Practice.</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.name}
+                className="reveal group relative bg-background p-10 hover:bg-surface transition-colors duration-500"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_0_1px_oklch(0.75_0.13_85/0.4),0_0_40px_-10px_oklch(0.75_0.13_85/0.4)]" />
+                <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                <h3 className="mt-8 text-xl font-semibold">{s.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                <div className="mt-8 text-xs uppercase tracking-[0.2em] text-muted-foreground/60 group-hover:text-primary transition-colors">
+                  0{i + 1} / 06
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
