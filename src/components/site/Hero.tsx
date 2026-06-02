@@ -11,7 +11,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-6 pt-32 pb-20 w-full">
         <p className="eyebrow reveal">Precision Longevity Medicine</p>
-        <h1 className="reveal mt-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.03em] leading-[0.95]" style={{ transitionDelay: "100ms" }}>
+        <h1 className="reveal mt-6 text-6xl sm:text-8xl lg:text-9xl font-bold tracking-[-0.05em] leading-[0.92]" style={{ transitionDelay: "100ms" }}>
           Your Biology<br />Is Your <span className="italic font-light text-primary">Edge.</span>
         </h1>
         <p className="reveal mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed" style={{ transitionDelay: "200ms" }}>
