@@ -1,4 +1,4 @@
-import { Activity, Droplet, Dna, Flame, Moon, Infinity as InfinityIcon } from "lucide-react";
+import { Activity, Droplet, Dna, Flame, Moon, Infinity as InfinityIcon, Zap } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 
 const services = [
@@ -8,6 +8,7 @@ const services = [
   { icon: Flame, name: "Hormone Optimization", desc: "Balance is performance. Restore your baseline — feel like yourself again, only better." },
   { icon: Moon, name: "Recovery", desc: "Recover faster. Train harder. Protocols built around inflammation, sleep, and tissue repair." },
   { icon: InfinityIcon, name: "Longevity", desc: "Play the long game. Biomarker tracking and interventions designed to extend your healthspan." },
+  { icon: Zap, name: "Performance", desc: "Operate at your ceiling. Protocols engineered for output, focus, and sustained peak performance." },
 ];
 
 export function Services() {
@@ -21,7 +22,7 @@ export function Services() {
             Every Protocol.<br /><span className="italic font-light text-primary">One Practice.</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -43,7 +44,7 @@ export function Services() {
 
                   <div className="mt-10 flex items-center justify-between">
                     <div className="text-xs uppercase tracking-widest text-muted-foreground/60 group-hover:text-primary transition-colors">
-                      0{i + 1} / 06
+                      {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                     </div>
                     <span className="text-xs uppercase tracking-widest text-primary inline-flex items-center gap-2 opacity-70 group-hover:opacity-100 transition-opacity">
                       Learn More
