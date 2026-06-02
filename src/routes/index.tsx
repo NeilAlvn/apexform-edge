@@ -1,29 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { Services } from "@/components/site/Services";
+import { WhyApexform } from "@/components/site/WhyApexform";
+import { SocialProof } from "@/components/site/SocialProof";
+import { FinalCTA } from "@/components/site/FinalCTA";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "APEXFORM — Precision Longevity Medicine" },
+      { name: "description", content: "Precision longevity protocols — bloodwork, hormones, peptides, and IV therapy — engineered for people who refuse to plateau." },
+      { property: "og:title", content: "APEXFORM — Precision Longevity Medicine" },
+      { property: "og:description", content: "Precision longevity protocols engineered for people who refuse to plateau." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="bg-background text-foreground">
+      <Nav />
+      <Hero />
+      <Services />
+      <WhyApexform />
+      <SocialProof />
+      <FinalCTA />
+      <Footer />
+    </main>
   );
 }
