@@ -1,6 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const systemInstruction = `You are APEX, a knowledgeable and premium health
   concierge for APEXFORM — a concierge longevity and performance medicine
@@ -48,13 +47,32 @@ export const sendChatMessage = createServerFn({ method: "POST" })
     const apiKey = process.env.VITE_GEMINI_API_KEY;
     if (!apiKey) throw new Error("GEMINI_API_KEY not configured");
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-3-flash-preview",
-      systemInstruction,
-    });
+    const contents = [
+      ...data.history.slice(-10),
+      { role: "user", parts: [{ text: data.message }] },
+    ];
 
-    const chat = model.startChat({ history: data.history.slice(-10) });
-    const result = await chat.sendMessage(data.message);
-    return { text: result.response.text() };
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: systemInstruction }] },
+          contents,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Gemini API error ${response.status}: ${error}`);
+    }
+
+    const result = await response.json();
+    const text: string = result.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+    return { text };
   });
