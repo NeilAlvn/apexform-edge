@@ -39,7 +39,6 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
     setIsSending(true);
     setError(null);
 
-    console.log("Submitting Intake Form Data:", formData);
     const submissionTime = new Date().toLocaleString();
 
     try {
