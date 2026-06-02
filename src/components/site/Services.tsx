@@ -25,19 +25,33 @@ export function Services() {
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
-              <div
+              <a
                 key={s.name}
-                className="reveal group relative bg-background p-10 hover:bg-surface transition-colors duration-500"
+                href="#contact"
+                className="reveal group relative bg-background p-10 transition-colors duration-500 overflow-hidden focus:outline-none"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_0_1px_oklch(0.75_0.13_85/0.4),0_0_40px_-10px_oklch(0.75_0.13_85/0.4)]" />
-                <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
-                <h3 className="mt-8 text-xl font-semibold">{s.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                <div className="mt-8 text-xs uppercase tracking-[0.2em] text-muted-foreground/60 group-hover:text-primary transition-colors">
-                  0{i + 1} / 06
+                {/* faint radial gold glow on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,oklch(0.75_0.13_85/0.10),transparent_70%)]" />
+                {/* gold border on hover/focus */}
+                <div className="absolute inset-0 pointer-events-none border-2 border-primary opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 shadow-[0_0_40px_-10px_oklch(0.75_0.13_85/0.5)]" />
+
+                <div className="relative">
+                  <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                  <h3 className="mt-8 text-xl font-semibold">{s.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+
+                  <div className="mt-10 flex items-center justify-between">
+                    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/60 group-hover:text-primary transition-colors">
+                      0{i + 1} / 06
+                    </div>
+                    <span className="text-xs uppercase tracking-[0.2em] text-primary inline-flex items-center gap-2 opacity-70 group-hover:opacity-100 transition-opacity">
+                      Learn More
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>

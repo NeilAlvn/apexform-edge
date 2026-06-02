@@ -20,6 +20,13 @@ export function FinalCTA() {
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
+        <div className="reveal mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-muted-foreground" style={{ transitionDelay: "400ms" }}>
+          <span>🔒 HIPAA Compliant</span>
+          <span className="text-muted-foreground/40">•</span>
+          <span>👨‍⚕️ Board-Certified Practitioners</span>
+          <span className="text-muted-foreground/40">•</span>
+          <span>📋 No Long-Term Contracts</span>
+        </div>
       </div>
     </section>
   );
