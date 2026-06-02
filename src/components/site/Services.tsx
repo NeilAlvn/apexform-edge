@@ -22,8 +22,8 @@ export function Services() {
             Every Protocol.<br /><span className="italic font-light text-primary">One Practice.</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
-          {services.map((s, i) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+          {services.slice(0, 6).map((s, i) => {
             const Icon = s.icon;
             return (
               <a
@@ -40,7 +40,7 @@ export function Services() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   <div className="mt-10 flex items-center justify-between">
                     <div className="text-xs uppercase tracking-widest text-muted-foreground/60 group-hover:text-primary transition-colors">
-                      {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+                      {String(i + 1).padStart(2, "0")} / 07
                     </div>
                     <span className="text-xs uppercase tracking-widest text-primary inline-flex items-center gap-2 opacity-70 group-hover:opacity-100 transition-opacity">
                       Learn More
@@ -51,19 +51,34 @@ export function Services() {
               </a>
             );
           })}
-          {/* 8th slot — CTA card to complete the grid */}
-          <a
-            href="#contact"
-            className="reveal group relative bg-primary/5 border border-primary/20 p-10 flex flex-col items-center justify-center text-center gap-4 transition-colors duration-500 hover:bg-primary/10 focus:outline-none"
-            style={{ transitionDelay: `${services.length * 60}ms` }}
-          >
-            <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Ready to Begin?</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">Your custom protocol starts with a single conversation.</p>
-            <span className="mt-2 text-xs uppercase tracking-widest text-primary inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-              Book Your Free Call <span>→</span>
-            </span>
-          </a>
         </div>
+
+        {/* Performance — full-width featured card */}
+        {(() => {
+          const s = services[6];
+          const Icon = s.icon;
+          return (
+            <a
+              href="#contact"
+              className="reveal group relative mt-px bg-background overflow-hidden focus:outline-none flex flex-col sm:flex-row items-start sm:items-center gap-8 p-10 sm:p-14 transition-colors duration-500"
+              style={{ transitionDelay: `${6 * 60}ms` }}
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_40%_80%_at_0%_50%,oklch(0.75_0.13_85/0.08),transparent_70%)]" />
+              <div className="absolute inset-0 pointer-events-none border border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_40px_-10px_oklch(0.75_0.13_85/0.5)]" />
+              <div className="relative shrink-0">
+                <Icon className="h-10 w-10 text-primary" strokeWidth={1.5} />
+              </div>
+              <div className="relative flex-1">
+                <p className="text-xs uppercase tracking-[0.2em] text-primary/60 mb-2">07 / 07</p>
+                <h3 className="text-2xl sm:text-3xl font-bold">{s.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground max-w-2xl">{s.desc}</p>
+              </div>
+              <span className="relative shrink-0 text-xs uppercase tracking-widest text-primary inline-flex items-center gap-2 opacity-70 group-hover:opacity-100 group-hover:gap-3 transition-all">
+                Learn More →
+              </span>
+            </a>
+          );
+        })()}
       </div>
     </section>
   );
