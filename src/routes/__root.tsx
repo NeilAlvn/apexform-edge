@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Apexform" },
+      { name: "description", content: "APEXFORM's homepage showcases precision longevity medicine for peak performance." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Apexform" },
+      { property: "og:description", content: "APEXFORM's homepage showcases precision longevity medicine for peak performance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Apexform" },
+      { name: "twitter:description", content: "APEXFORM's homepage showcases precision longevity medicine for peak performance." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3e8e706-e13e-4739-99e3-aeda5c3cf168/id-preview-7f2cc5ef--e113a320-3017-45c4-a84a-618f4e46bba2.lovable.app-1780405831837.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3e8e706-e13e-4739-99e3-aeda5c3cf168/id-preview-7f2cc5ef--e113a320-3017-45c4-a84a-618f4e46bba2.lovable.app-1780405831837.png" },
     ],
     links: [
       {
