@@ -6,6 +6,13 @@ const pillars = [
   { n: "03", title: "Performance-First", desc: "Built for executives, athletes, and founders who operate at their best every day." },
 ];
 
+const miniStats = [
+  { v: "300+", l: "Biomarkers per panel" },
+  { v: "48 hr", l: "Avg. results turnaround" },
+  { v: "1:1", l: "Practitioner access" },
+  { v: "24/7", l: "Concierge support" },
+];
+
 export function WhyApexform() {
   const ref = useReveal<HTMLElement>();
   return (
@@ -26,6 +33,19 @@ export function WhyApexform() {
               <p className="mt-4 text-muted-foreground leading-relaxed">{p.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* By the numbers */}
+        <div className="reveal mt-24 pt-16 border-t border-white/10" style={{ transitionDelay: "400ms" }}>
+          <p className="eyebrow text-center mb-10">By The Numbers</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {miniStats.map((s) => (
+              <div key={s.l} className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold tracking-[-0.02em] text-primary">{s.v}</div>
+                <div className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
