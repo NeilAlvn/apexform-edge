@@ -15,7 +15,7 @@ export default defineConfig({
   nitro: {
     preset: "vercel",
     externals: {
-      inline: ["tslib"],
+      inline: ["tslib", "react-remove-scroll", "react-remove-scroll-bar"],
     },
   },
 });
