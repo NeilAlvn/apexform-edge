@@ -22,14 +22,14 @@ export function Services() {
             Every Protocol.<br /><span className="italic font-light text-primary">One Practice.</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
               <a
                 key={s.name}
                 href="#contact"
-                className="reveal group relative bg-background p-10 transition-colors duration-500 overflow-hidden focus:outline-none"
+                className={`reveal group relative bg-background p-10 transition-colors duration-500 overflow-hidden focus:outline-none${i === services.length - 1 ? " sm:col-span-2 lg:col-span-3" : ""}`}
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
                 {/* faint radial gold glow on hover */}
