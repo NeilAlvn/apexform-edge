@@ -5,12 +5,13 @@ export function Hero() {
   return (
     <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       <div className="absolute inset-0 bg-radial-dark" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_45%,oklch(0.28_0.03_250/0.45),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,oklch(0.75_0.13_85/0.08),transparent_70%)]" />
       <div className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:80px_80px]" />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-32 pb-20 w-full">
         <p className="eyebrow reveal">Precision Longevity Medicine</p>
-        <h1 className="reveal mt-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.03em] leading-[0.95]" style={{ transitionDelay: "100ms" }}>
+        <h1 className="reveal mt-6 text-6xl sm:text-8xl lg:text-9xl font-bold tracking-[-0.05em] leading-[0.92]" style={{ transitionDelay: "100ms" }}>
           Your Biology<br />Is Your <span className="italic font-light text-primary">Edge.</span>
         </h1>
         <p className="reveal mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed" style={{ transitionDelay: "200ms" }}>
