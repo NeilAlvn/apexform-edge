@@ -5,7 +5,7 @@ import { MessageCircle, X, ArrowUp } from "lucide-react";
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash",
+  model: "gemini-3-flash-preview",
   systemInstruction: `You are APEX, a knowledgeable and premium health 
   concierge for APEXFORM — a concierge longevity and performance medicine 
   clinic.
