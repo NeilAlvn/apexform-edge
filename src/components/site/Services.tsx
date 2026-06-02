@@ -34,7 +34,7 @@ export function Services() {
                 {/* faint radial gold glow on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,oklch(0.75_0.13_85/0.10),transparent_70%)]" />
                 {/* gold border on hover/focus */}
-                <div className="absolute inset-0 pointer-events-none border-2 border-primary opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 shadow-[0_0_40px_-10px_oklch(0.75_0.13_85/0.5)]" />
+                <div className="absolute inset-0 pointer-events-none border border-primary opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 shadow-[0_0_40px_-10px_oklch(0.75_0.13_85/0.5)]" />
 
                 <div className="relative">
                   <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
@@ -42,10 +42,10 @@ export function Services() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
 
                   <div className="mt-10 flex items-center justify-between">
-                    <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/60 group-hover:text-primary transition-colors">
+                    <div className="text-xs uppercase tracking-widest text-muted-foreground/60 group-hover:text-primary transition-colors">
                       0{i + 1} / 06
                     </div>
-                    <span className="text-xs uppercase tracking-[0.2em] text-primary inline-flex items-center gap-2 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs uppercase tracking-widest text-primary inline-flex items-center gap-2 opacity-70 group-hover:opacity-100 transition-opacity">
                       Learn More
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </span>

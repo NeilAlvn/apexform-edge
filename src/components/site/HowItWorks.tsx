@@ -35,7 +35,7 @@ export function HowItWorks() {
                   </div>
                 </div>
                 <h3 className="mt-8 text-xl sm:text-2xl font-semibold">{s.title}</h3>
-                <p className="mt-4 text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>

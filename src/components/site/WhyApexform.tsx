@@ -27,10 +27,10 @@ export function WhyApexform() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
           {pillars.map((p, i) => (
             <div key={p.n} className="reveal text-center md:text-left md:px-8" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="text-primary text-xs tracking-[0.3em] font-medium">{p.n}</div>
+              <div className="text-primary text-xs tracking-widest font-medium">{p.n}</div>
               <div className="mt-6 h-px w-12 bg-primary/40 mx-auto md:mx-0" />
               <h3 className="mt-8 text-2xl font-semibold">{p.title}</h3>
-              <p className="mt-4 text-muted-foreground leading-relaxed">{p.desc}</p>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>

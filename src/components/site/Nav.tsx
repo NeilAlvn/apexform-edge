@@ -1,4 +1,4 @@
-export function Nav() {
+export function Nav({ onBookCall }: { onBookCall: () => void }) {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/60 border-b border-white/5">
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
@@ -8,12 +8,16 @@ export function Nav() {
         <nav className="hidden md:flex items-center gap-10 text-sm text-muted-foreground">
           <a href="#services" className="hover:text-foreground transition-colors">Services</a>
           <a href="#why" className="hover:text-foreground transition-colors">Why Us</a>
+          <a href="#how" className="hover:text-foreground transition-colors">How It Works</a>
           <a href="#community" className="hover:text-foreground transition-colors">Community</a>
           <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
         </nav>
-        <a href="#contact" className="text-xs tracking-widest uppercase border border-primary/60 text-primary px-4 py-2 rounded-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+        <button
+          onClick={onBookCall}
+          className="text-xs tracking-widest uppercase border border-primary/60 text-primary px-4 py-2 hover:bg-primary/10 transition-colors"
+        >
           Book Call
-        </a>
+        </button>
       </div>
     </header>
   );

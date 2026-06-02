@@ -1,11 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useCountUp, useReveal } from "@/hooks/use-reveal";
-import marcus from "@/assets/t-marcus.jpg";
-import derek from "@/assets/t-derek.jpg";
-import priya from "@/assets/t-priya.jpg";
-import james from "@/assets/t-james.jpg";
-import sofia from "@/assets/t-sofia.jpg";
-import ryan from "@/assets/t-ryan.jpg";
 
 const stats = [
   { value: 500, suffix: "+", label: "Members Optimized" },
@@ -17,42 +11,42 @@ const testimonials = [
   {
     name: "Marcus T.",
     title: "Entrepreneur, 42",
-    photo: marcus,
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
     quote:
       "I've optimized everything in my business. APEXFORM was the missing piece for my body. My energy, focus, and recovery are on a different level. The bloodwork results alone changed how I think about my health.",
   },
   {
     name: "Derek R.",
     title: "Former D1 Athlete, 38",
-    photo: derek,
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
     quote:
       "After my playing career ended I felt like I was declining every year. Three months into the hormone protocol and I feel like I'm 28 again. No exaggeration.",
   },
   {
     name: "Priya S.",
     title: "Surgeon, 45",
-    photo: priya,
+    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
     quote:
       "As a physician I was skeptical. Then I saw my own labs. APEXFORM caught deficiencies my annual physical completely missed. The protocol they built around my results was precise and it worked.",
   },
   {
     name: "James K.",
     title: "CEO, 51",
-    photo: james,
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
     quote:
       "I was sleeping 8 hours and still exhausted. Turns out my testosterone was at the floor. Six weeks into the protocol — different person. My team noticed before I did.",
   },
   {
     name: "Sofia M.",
     title: "Triathlete, 34",
-    photo: sofia,
+    photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
     quote:
       "The recovery protocol cut my post-race inflammation time in half. My coach couldn't believe my turnaround numbers. This is the edge I didn't know I was missing.",
   },
   {
     name: "Ryan C.",
     title: "Founder, 39",
-    photo: ryan,
+    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face",
     quote:
       "I thought feeling worn down was just part of building a company. It's not. It was my cortisol, my sleep quality, my nutrition gaps — all fixable. APEXFORM showed me the data and fixed it.",
   },
@@ -67,8 +61,8 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
     const el = containerRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setStart(true); obs.disconnect(); }
-    }, { threshold: 0.4 });
+      setStart(e.isIntersecting);
+    }, { threshold: 0.1 });
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
@@ -78,18 +72,16 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
       <div className="text-5xl sm:text-7xl font-bold tracking-[-0.03em] text-primary">
         <span ref={numRef}>0</span>{suffix}
       </div>
-      <div className="mt-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">{label}</div>
+      <div className="mt-3 text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
     </div>
   );
 }
 
 function Stars() {
   return (
-    <div className="flex gap-1 text-primary" aria-label="5 out of 5 stars">
+    <div className="flex gap-1 text-primary text-lg" aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.5l7.1-.6z" />
-        </svg>
+        <span key={i}>★</span>
       ))}
     </div>
   );
@@ -119,7 +111,7 @@ export function SocialProof() {
               style={{ transitionDelay: `${(i % 3) * 100}ms` }}
             >
               <Stars />
-              <blockquote className="mt-5 text-sm leading-relaxed flex-1 text-foreground/90">
+              <blockquote className="mt-5 text-sm leading-relaxed flex-1 text-[#F5F0E8]/90 italic">
                 "{t.quote}"
               </blockquote>
               <figcaption className="mt-8 pt-6 border-t border-white/10 flex items-center gap-4">
@@ -132,8 +124,8 @@ export function SocialProof() {
                   className="h-14 w-14 rounded-full object-cover ring-1 ring-primary/30"
                 />
                 <div>
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-sm text-muted-foreground">{t.title}</div>
+                  <div className="font-bold text-white">{t.name}</div>
+                  <div className="text-[10px] uppercase tracking-widest text-primary">{t.title}</div>
                 </div>
               </figcaption>
             </figure>
@@ -143,3 +135,4 @@ export function SocialProof() {
     </section>
   );
 }
+

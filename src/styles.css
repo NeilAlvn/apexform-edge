@@ -88,10 +88,7 @@
 
 @layer utilities {
   .eyebrow {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
+    @apply text-xs tracking-widest uppercase;
     color: var(--gold);
   }
   .reveal {

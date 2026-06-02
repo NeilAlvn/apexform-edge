@@ -10,11 +10,12 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add("in-view");
-            obs.unobserve(e.target);
+          } else {
+            e.target.classList.remove("in-view");
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     el.querySelectorAll(".reveal").forEach((n) => obs.observe(n));
     return () => obs.disconnect();

@@ -5,9 +5,10 @@ export function Footer() {
         <div className="font-semibold tracking-[0.2em] text-sm">
           APEX<span className="text-primary">FORM</span>
         </div>
-        <nav className="flex items-center gap-8 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <nav className="flex items-center gap-8 text-xs uppercase tracking-widest text-muted-foreground">
           <a href="#services" className="hover:text-foreground transition-colors">Services</a>
           <a href="#why" className="hover:text-foreground transition-colors">About</a>
+          <a href="#how" className="hover:text-foreground transition-colors">How It Works</a>
           <a href="#community" className="hover:text-foreground transition-colors">Members</a>
           <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
         </nav>
